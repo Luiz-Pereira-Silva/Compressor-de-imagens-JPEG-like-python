@@ -10,6 +10,8 @@ A primeira etapa do compressor foi realizada sobre a componente Y da imagem depo
 
 Figura 1:
 
+![Figura1](Imagens/Judy_Koda.jpg)
+
 
 Após tirar a DCT dos blocos da imagem, é então realizada a quantização, utilizando o arquivo quantizador.py cuja agressividade da quantização é realizada através de uma escala definida anteriormente que será essencial para verificarmos como a compressão dos dados pode apagar informações do arquivo original. Posteriormente é realizada uma varredura utilizando o algoritmo utilizado para imagens jpeg que está dentro do arquivo zigzag.py que cria uma matriz onde cada coordenada corresponde à um bloco de 8x8 da imagem original e seu conteúdo nada mais é do que os bytes que representam cada elemento da matriz 8x8. Portando uma imagem de tamanho (x, y) é convertida em um bloco de dimensões (x/8, y/8, 64). A metodologia adotada foi essa porque foi uma forma fácil de recuperar as dimensões da imagem depois, visto que toda a implementação gira em torno de dividir a imagem completa em blocos 8x8. Dentro do arquivo zigzag.py também foi feita a parte de compressão dos dados utilizando o algoritmo RLE e o cálculo de bpp para representar o nível de compressão da imagem depois de sua execução. 
 
@@ -21,6 +23,8 @@ Em questão de qualidade de imagem, os métodos implementados tiveram diferença
 
 Figura 2:
 
+![Figura2](Imagens/testes_de_erro_e_velocidade.png)
+
 
 Esses resultados foram obtidos através da obtenção da mediana de uma lista de amostras de tempo de execução de tamanho 20 com 3 execuções de aquecimento. Isso se deve primariamente ao fato de que esses métodos e operações que podem ser utilizados pelo python são código compilado, muitos feitos na linguagem C, que devido a não precisarem de um interpretador que reduz consideravelmente o tempo de execução conseguem um desempenho estrondoso comparado ao código implementado. Além da ausência do interpretador, os métodos prontos utilizam também instruções vetoriais da própria CPU e de bibliotecas otimizadas de álgebra linear para atingir esse resultado.
 
@@ -31,7 +35,7 @@ Observando portanto a variação dos valores em função de s é possível perce
 
 Figura 3:
 
-
+![Figura3](Imagens/medicoes_numericas.png)
 
 
 
@@ -45,6 +49,8 @@ Figura 3:
 
 Figura 4:
 
+![Figura4](Imagens/graficos_psnr-ssim.png)
+
 
 
 
@@ -52,8 +58,12 @@ Em questão da qualidade visual da imagem chega a ser imperceptível a diferenç
 
 Figura 5:
 
+![Figura5](Imagens/imagens_completas_por_s.png)
+
 
 Figura 6:
+
+![Figura6](Imagens/blocos_das_imagens_por_s.png)
 
 
 Discussão:
